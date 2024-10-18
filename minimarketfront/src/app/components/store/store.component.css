@@ -1,0 +1,17 @@
+.card-body p {
+  margin: 6px 0;
+  font-size: 14px;
+}
+
+.card-body strong {
+  margin-right: 6px;
+}
+
+.card {
+  overflow: hidden;
+}
+
+.card img:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+}

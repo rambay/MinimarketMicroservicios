@@ -1,0 +1,156 @@
+<div class="container">
+  <div class="row">
+    <header>
+      <section class="navbar">
+        <a
+          routerLink="/"
+          class="logo"
+          style="text-decoration: none; color: #000"
+        >
+          <img src="../../assets/logo.png" alt="Logo" width="50" />
+          <p>Minimarket</p>
+        </a>
+        <nav>
+          <ul *ngIf="myRol == 'Administrador'">
+            <div class="dropdown">
+              <li
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                style="
+                  background-color: transparent;
+                  color: #000;
+                  border: none;
+                  cursor: pointer;
+                "
+              >
+                <i
+                  class="bi bi-shop px-2"
+                  style="font-size: 20px; color: red"
+                ></i>
+                Mantenimientos
+              </li>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li>
+                  <a class="dropdown-item" routerLink="/productos">Productos</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" routerLink="/proveedores"
+                    >Proveedores</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" routerLink="/usuarios">Usuarios</a>
+                </li>
+              </ul>
+            </div>
+          </ul>
+          <ul *ngIf="myRol != 'Administrador'">
+            <li
+              style="
+                background-color: transparent;
+                color: #000;
+                border: none;
+                cursor: pointer;
+              "
+            >
+              <i
+                class="bi bi-shop px-2"
+                style="font-size: 20px; color: red"
+              ></i>
+              <a routerLink="/store" style="text-decoration: none; color: #000"
+                >Productos</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <div class="menuRight">
+          <ng-container *ngIf="isLoginActive == 'true'">
+            <button (click)="logout()" class="logoutButton btn btn-danger">
+              Cerrar sesión
+            </button>
+          </ng-container>
+
+          <ng-container *ngIf="isLoginActive == 'false'">
+            <a
+              routerLink="/login"
+              class="loginUser btn btn-primary"
+              style="color: #fff"
+              >Iniciar sesión</a
+            >
+          </ng-container>
+
+          <a routerLink="/cart">
+            <i class="bi bi-cart-fill carritoIcon">
+              <span class="carritoIcon__count">{{ countCarrito }}</span>
+            </i>
+          </a>
+        </div>
+      </section>
+    </header>
+    <div
+      id="carouselExampleAutoplaying"
+      class="carousel slide"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-inner">
+        <div style="max-height: 420px" class="carousel-item active">
+          <img
+            style="object-fit: cover"
+            src="/assets/slider/banner-mascotas.jpg"
+            class="d-block w-100"
+            width="100%"
+            height="400px"
+            alt="Slider1"
+          />
+        </div>
+        <div style="max-height: 420px" class="carousel-item">
+          <img
+            style="object-fit: cover"
+            src="/assets/slider/banner-belleza.jpg"
+            class="d-block w-100"
+            width="100%"
+            height="400px"
+            alt="Slider2"
+          />
+        </div>
+        <div style="max-height: 420px" class="carousel-item">
+          <img
+            style="object-fit: cover"
+            src="/assets/slider/banner-lacteos.jpg"
+            class="d-block w-100"
+            width="100%"
+            height="400px"
+            alt="Slider3"
+          />
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleAutoplaying"
+        data-bs-slide="prev"
+      >
+        <span
+          class="carousel-control-prev-icon text-black"
+          aria-hidden="true"
+        ></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleAutoplaying"
+        data-bs-slide="next"
+      >
+        <span
+          class="carousel-control-next-icon text-black"
+          aria-hidden="true"
+        ></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+</div>

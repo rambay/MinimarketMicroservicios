@@ -1,0 +1,206 @@
+<section>
+  <div class="container">
+    <div class="row p-5">
+      <div class="col-12">
+        <div class="row section-banner">
+          <div class="col-auto">
+            <h2>Mantenimiento de Productos</h2>
+          </div>
+          <div class="col-6 btn-agregar">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#modalProducto"
+              (click)="titulo('Crear', null)"
+            >
+              Nuevo producto
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Fecha Venc</th>
+              <th scope="col">Marca</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Tipo</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let lista of listaProductos">
+              <td>{{ lista.idProducto }}</td>
+              <td>{{ lista.cantidad }}</td>
+              <td>{{ lista.fechaVen }}</td>
+              <td>{{ lista.marca }}</td>
+              <td>{{ lista.nombre }}</td>
+              <td>S/. {{ lista.precio }}</td>
+              <td>{{ lista.tipoProd.nombre }}</td>
+              <td>
+                <button
+                  type="button"
+                  class="btn btn-success"
+                  data-bs-toggle="modal"
+                  data-bs-target="#modalProducto"
+                  (click)="titulo('Editar', lista.idProducto)"
+                >
+                  Editar
+                </button>
+                <button
+                  class="btn btn-danger"
+                  (click)="eliminarProductos(lista.idProducto)"
+                >
+                  Eliminar
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <form [formGroup]="formProducto">
+      <div class="modal fade" id="modalProducto">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">{{ title }}</h5>
+              <button
+                type="button"
+                class="btn-close"
+                (click)="cerrarBoton()"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-floating mb-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Nombre"
+                      formControlName="nombre"
+                      required
+                    />
+                    <label for="Nombre">Nombre</label>
+                  </div>
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Precio"
+                      formControlName="precio"
+                    />
+                    <label for="Precio">Precio</label>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-floating mb-3" formGroupName="tipoProd">
+                    <select class="form-control" formControlName="id">
+                      <option [ngValue]="null" disabled>
+                        Seleccione un tipo producto
+                      </option>
+                      <option
+                        *ngFor="let tipo of listaTiposProductos"
+                        [value]="tipo.id"
+                      >
+                        {{ tipo.nombre }}
+                      </option>
+                    </select>
+                    <label for="Categoria">Tipo Producto</label>
+                  </div>
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Marca"
+                      formControlName="marca"
+                    />
+                    <label for="Marca">Marca</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-6 mb-3 mt-3">
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Image"
+                      formControlName="image"
+                    />
+                    <label for="Image">Imagen</label>
+                  </div>
+                </div>
+                <div class="col-6 mb-3 mt-3">
+                  <div class="form-floating">
+                    <select class="form-control" formControlName="idProveedor">
+                      <option [ngValue]="null" disabled>
+                        Seleccione un proveedor
+                      </option>
+                      <option
+                        *ngFor="let proveedor of listaProveedores"
+                        [ngValue]="proveedor.id"
+                      >
+                        {{ proveedor.nombre }}
+                      </option>
+                    </select>
+                    <label for="proveedor">Proveedor</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-floating mb-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Cantidad"
+                      formControlName="cantidad"
+                    />
+                    <label for="Cantidad">Cantidad</label>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-floating">
+                    <input
+                      type="date"
+                      class="form-control"
+                      placeholder="Fecha"
+                      formControlName="fechaVen"
+                    />
+                    <label for="Fecha">Fecha Vencimiento</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                (click)="cerrarBoton()"
+              >
+                Cerrar
+              </button>
+              <button
+                type="submit"
+                class="btn btn-primary"
+                (click)="crearEditarProducto(nameBoton)"
+              >
+                {{ nameBoton }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

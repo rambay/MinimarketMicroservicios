@@ -1,0 +1,102 @@
+.newsletterTop {
+  padding: 8px;
+  background-color: lightgray;
+}
+
+.newsletterTop p {
+  margin: 0;
+  text-align: center;
+}
+
+.navbar {
+  display: grid;
+  grid-template-columns: 0.3fr auto 1fr;
+  align-items: center;
+}
+
+.navbar .logo {
+  gap: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.logo p {
+  margin: 0;
+}
+
+.navbar nav {
+  display: flex;
+  align-items: center;
+}
+
+.navbar nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar nav ul li {
+  list-style: none;
+}
+
+.info-extra {
+  display: flex;
+  justify-self: center;
+  gap: 12px;
+  align-items: center;
+}
+
+.info-extra .delivery > span {
+  margin-left: 8px;
+}
+
+.info-extra .location > span {
+  margin-left: 8px;
+}
+
+.info-extra .delivery,
+.info-extra .location {
+  margin: 0;
+}
+
+.menuRight {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-items: end;
+  justify-self: end;
+}
+
+.loginUser {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  margin: 0;
+}
+
+.logoutButton {
+  font-size: 14px;
+  padding: 6;
+}
+
+.carritoIcon {
+  position: relative;
+  font-size: 20px;
+  margin: 0 6px;
+}
+
+.carritoIcon__count {
+  position: absolute;
+  bottom: -5px;
+  right: -10px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background-color: black;
+  border-radius: 50%;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}

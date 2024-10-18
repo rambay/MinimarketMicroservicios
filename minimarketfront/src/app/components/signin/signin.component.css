@@ -1,0 +1,14 @@
+.btnSignUp {
+  text-decoration: none;
+  color: #404040;
+  font-weight: lighter;
+  font-size: 14px;
+}
+
+.btnSignUp:hover {
+  color: #8b8b8b;
+}
+
+form {
+  padding: 20px;
+}
