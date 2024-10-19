@@ -18,7 +18,7 @@ public interface UsersClient {
     ResponseEntity<Map<String,Object>> listarUsuariosPorId(@RequestHeader("Authorization") String token, @PathVariable Long idUsuario);
 
     @PostMapping
-    ResponseEntity<Map<String,Object>> agregarUsuarios(@RequestHeader("Authorization") String token, @RequestBody UsuarioCreateDTO usuarioCreateDTO);
+    ResponseEntity<Map<String,Object>> agregarUsuarios(@RequestBody UsuarioCreateDTO usuarioCreateDTO);
 
     @PutMapping("/{idUsuario}")
     ResponseEntity<Map<String,Object>> editarUsuarios(@RequestHeader("Authorization") String token, @PathVariable("idUsuario") Long idUsuario, @RequestBody UsuarioUpdateDTO usuarioUpdateDTO);

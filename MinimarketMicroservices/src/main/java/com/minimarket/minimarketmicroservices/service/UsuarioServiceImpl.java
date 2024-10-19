@@ -39,8 +39,8 @@ public class UsuarioServiceImpl {
     }
 
     // Método para agregar usuarios, acepta el token JWT como parámetro
-    public ResponseEntity<Map<String, Object>> agregarUsuarios(String token, UsuarioCreateDTO usuarioCreateDTO) {
-        return usersClient.agregarUsuarios(token, usuarioCreateDTO);
+    public ResponseEntity<Map<String, Object>> agregarUsuarios(UsuarioCreateDTO usuarioCreateDTO) {
+        return usersClient.agregarUsuarios(usuarioCreateDTO);
     }
 
     // Método para editar usuarios, acepta el token JWT como parámetro

@@ -4,12 +4,15 @@ import com.minimarket.usersservice.dtos.UsuarioCreateDTO;
 import com.minimarket.usersservice.dtos.UsuarioDTO;
 import com.minimarket.usersservice.dtos.UsuarioUpdateDTO;
 import com.minimarket.usersservice.mappers.UsuarioMapper;
+import com.minimarket.usersservice.model.Rol;
 import com.minimarket.usersservice.model.Usuario;
+import com.minimarket.usersservice.repository.RolRepository;
 import com.minimarket.usersservice.repository.UsuarioRepository;
 import com.minimarket.usersservice.service.UsuarioService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -19,6 +22,8 @@ import java.util.*;
 public class UsuarioServiceImpl implements UsuarioService {
 
     private final UsuarioRepository repository;
+    private final RolRepository rolRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public ResponseEntity<Map<String, Object>> listarUsuarios() {
@@ -63,6 +68,10 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     public ResponseEntity<Map<String, Object>> agregarUsuarios(UsuarioCreateDTO usuarioCreateDTO) {
         Map<String, Object> respuesta = new HashMap<>();
+
+        String encodedPassword = passwordEncoder.encode(usuarioCreateDTO.getPassword());
+        usuarioCreateDTO.setPassword(encodedPassword);
+
         Usuario nuevoUsuario = UsuarioMapper.instancia.usuarioCreateDTOToUsuario(usuarioCreateDTO);
         Usuario usuarioGuardado = repository.save(nuevoUsuario);
         UsuarioDTO usuarioDTO = UsuarioMapper.instancia.usuarioToUsuarioDTO(usuarioGuardado);

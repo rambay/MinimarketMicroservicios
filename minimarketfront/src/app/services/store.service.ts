@@ -23,10 +23,7 @@ export class StoreService {
     );
 
     if (!productoExistente) {
-      this.productosCarrito.next([
-        ...carritoActual,
-        { ...producto }, // Agrega el producto sin la cantidad
-      ]);
+      this.productosCarrito.next([...carritoActual, { ...producto }]);
     } else {
       console.log('Este producto ya está en el carrito.');
     }
@@ -44,6 +41,11 @@ export class StoreService {
     );
     this.productosCarrito.next(carritoActual);
     this.guardarCarrito();
+  }
+
+  vaciarCarrito() {
+    this.productosCarrito.next([]); // Vacía el carrito
+    localStorage.removeItem('carrito'); // Elimina el carrito de localStorage
   }
 
   guardarCarrito() {

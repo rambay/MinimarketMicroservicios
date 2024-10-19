@@ -48,7 +48,6 @@ export class ProveedoresComponent implements OnInit {
           this.cerrarModal();
           this.obtenerProveedores();
           this.resetForm();
-          console.log('Proveedor registrado', response);
         },
         (error) => {
           console.log(formulario);
@@ -65,7 +64,6 @@ export class ProveedoresComponent implements OnInit {
           this.cerrarModal();
           this.obtenerProveedores();
           this.resetForm();
-          console.log('Proveedor modificado', response);
         },
         (error) => {
           console.error('Error al modificar proveedor', error);

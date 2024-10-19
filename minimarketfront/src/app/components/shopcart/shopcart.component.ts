@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { StoreService } from 'src/app/services/store.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { StoreService } from 'src/app/services/store.service';
 export class ShopcartComponent implements OnInit {
   productosCart: any[] = [];
 
-  constructor(private _storeService: StoreService) {}
+  constructor(private _storeService: StoreService, private router: Router) {}
 
   ngOnInit(): void {
     this._storeService.productosCarrito$.subscribe((productos) => {
@@ -18,7 +19,7 @@ export class ShopcartComponent implements OnInit {
   }
 
   realizarCompra() {
-    console.log('Compra realizada:', this.productosCart);
+    this.router.navigate(['cart/shipping']);
   }
 
   eliminarProducto(producto: any) {
@@ -33,17 +34,17 @@ export class ShopcartComponent implements OnInit {
 
   actualizarCantidad(producto: any) {
     if (producto.total < 1) {
-      producto.total = 1; // Evita que la cantidad sea menor que 1
+      producto.total = 1;
     }
 
     if (producto.total > producto.cantidad) {
-      producto.total = producto.cantidad; // No permite que supere la cantidad disponible
+      producto.total = producto.cantidad;
       alert(
         `Solo quedan ${producto.cantidad} unidades disponibles para ${producto.nombre}`
       );
     }
 
-    this.calcularTotal(); // Recalcula el total después de la actualización
+    this.calcularTotal();
   }
 
   calcularTotalProductos(): number {

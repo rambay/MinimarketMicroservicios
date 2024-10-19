@@ -10,6 +10,8 @@ import { AuthGuard } from './helpers/auth.guard';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { StoreComponent } from './components/store/store.component';
 import { ShopcartComponent } from './components/shopcart/shopcart.component';
+import { ShippingComponent } from './components/shipping/shipping.component';
+import { PaymentComponent } from './components/payment/payment.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -17,6 +19,16 @@ const routes: Routes = [
   { path: 'register', component: SignupComponent },
   { path: 'store', component: StoreComponent },
   { path: 'cart', component: ShopcartComponent },
+  {
+    path: 'cart/shipping',
+    component: ShippingComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'checkout/payment',
+    component: PaymentComponent,
+    canActivate: [AuthGuard],
+  },
   {
     path: 'productos',
     component: ProductosComponent,

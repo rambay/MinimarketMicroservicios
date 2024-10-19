@@ -17,6 +17,9 @@ import { ProveedoresComponent } from './components/proveedores/proveedores.compo
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { StoreComponent } from './components/store/store.component';
 import { ShopcartComponent } from './components/shopcart/shopcart.component';
+import { ShippingComponent } from './components/shipping/shipping.component';
+import { RouterModule } from '@angular/router';
+import { PaymentComponent } from './components/payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -32,12 +35,15 @@ import { ShopcartComponent } from './components/shopcart/shopcart.component';
     NotfoundComponent,
     StoreComponent,
     ShopcartComponent,
+    ShippingComponent,
+    PaymentComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterModule,
     AppRoutingModule,
     CommonModule,
   ],

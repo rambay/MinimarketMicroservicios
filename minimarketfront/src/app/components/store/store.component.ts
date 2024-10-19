@@ -37,6 +37,5 @@ export class StoreComponent implements OnInit {
   agregarAlCarrito(producto: any) {
     const total = this.cantidadSeleccionada[producto.id] || 1;
     this._storeService.agregarProducto({ ...producto, total });
-    console.log('Producto agregado al carrito:', { ...producto, total });
   }
 }

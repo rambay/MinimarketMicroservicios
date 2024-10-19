@@ -1,5 +1,6 @@
 package com.minimarket.minimarketmicroservices.dtos.Usuario;
 
+import com.minimarket.minimarketmicroservices.dtos.Usuario.Rol.RolDTO;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,4 +14,5 @@ public class UsuarioDTO {
     private String name;
     private String lastname;
     private Genero genero;
+    private RolDTO rol;
 }

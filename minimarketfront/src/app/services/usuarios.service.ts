@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -32,9 +33,16 @@ export class UsuariosService {
   }
 
   guardarUsuario(data: any): Observable<any> {
-    return this.http.post<any>(this.usuarios, data, {
-      headers: this.obtenerHeaders(),
-    });
+    return this.http
+      .post<any>(this.usuarios, data, {
+        headers: this.obtenerHeaders(),
+      })
+      .pipe(
+        catchError((error) => {
+          console.error('Error al guardar usuario:', error);
+          return throwError(error);
+        })
+      );
   }
 
   editarUsuario(id: number, data: any): Observable<any> {

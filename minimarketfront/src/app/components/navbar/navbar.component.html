@@ -68,7 +68,11 @@
         </nav>
         <div class="menuRight">
           <ng-container *ngIf="isLoginActive == 'true'">
-            <button (click)="logout()" class="logoutButton btn btn-danger">
+            <button
+              (click)="logout()"
+              routerLink="/"
+              class="logoutButton btn btn-danger"
+            >
               Cerrar sesión
             </button>
           </ng-container>

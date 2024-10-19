@@ -54,4 +54,5 @@ public class UserDetailImplement implements UserDetails {
         return usuario.getName();
     }
     public String getRol() { return usuario.getRol().getNombreRol(); }
+    public Long getId() { return usuario.getId(); }
 }

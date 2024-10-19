@@ -6,6 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class RolCreateDTO {
+    private Long id;
     private String nombreRol;
     private String descripcionRol;
 }

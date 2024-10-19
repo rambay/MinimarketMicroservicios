@@ -16,5 +16,5 @@ public class UsuarioUpdateDTO {
     private String name;
     private String lastname;
     private Genero genero;
-    private List<RolUpdateDTO> roles;
+    private RolUpdateDTO rol;
 }

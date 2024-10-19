@@ -15,5 +15,5 @@ public class UsuarioCreateDTO {
     private String name;
     private String lastname;
     private Genero genero;
-    private List<RolCreateDTO> roles;
+    private RolCreateDTO rol;
 }

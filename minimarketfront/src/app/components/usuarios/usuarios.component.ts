@@ -51,11 +51,9 @@ export class UsuariosComponent implements OnInit {
     if (this.formUsuario.valid) {
       this._usuarioService.guardarUsuario(formulario).subscribe(
         (response) => {
-          console.log(formulario);
           this.cerrarModal();
           this.obtenerUsuarios();
           this.resetForm();
-          console.log('Usuario registrado', response);
         },
         (error) => {
           console.log(formulario);
@@ -72,7 +70,6 @@ export class UsuariosComponent implements OnInit {
           this.cerrarModal();
           this.obtenerUsuarios();
           this.resetForm();
-          console.log('Usuario modificado', response);
         },
         (error) => {
           console.error('Error al modificar usuario', error);
@@ -95,8 +92,6 @@ export class UsuariosComponent implements OnInit {
     this._usuarioService.obtenerUsuarioPorId(id).subscribe(
       (data) => {
         if (data) {
-          console.log(data);
-
           form.controls['username'].setValue(data.usuario.username || '');
           form.controls['password'].setValue(data.usuario.password || '');
           form.controls['email'].setValue(data.usuario.email || '');
@@ -104,8 +99,6 @@ export class UsuariosComponent implements OnInit {
           form.controls['lastname'].setValue(data.usuario.lastname || '');
           form.controls['genero'].setValue(data.usuario.genero || '');
           form.get('rol.id').setValue(data.usuario.rol.id || '');
-
-          console.log('Formulario a editar:', form);
         } else {
           console.error('El producto no se encontró o los datos son nulos');
         }

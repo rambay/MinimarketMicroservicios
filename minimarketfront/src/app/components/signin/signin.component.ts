@@ -31,8 +31,6 @@ export class SigninComponent implements OnInit {
     if (this.formLogin.valid) {
       this._signinService.ingresar(this.formLogin.value).subscribe({
         next: (res) => {
-          console.log('Response: ', res);
-
           this.router.navigate(['/']);
         },
         error: (err: HttpErrorResponse) => {

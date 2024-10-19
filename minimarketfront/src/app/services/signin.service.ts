@@ -29,13 +29,15 @@ export class SigninService {
       map((response: any) => {
         const token = response.token;
         if (token) {
-          console.log('Token encontrado: ', token);
           localStorage.setItem('token', token);
           localStorage.setItem('isLogin', 'true');
           this.isLoginSubject.next('true');
 
           const user = this.decodeToken(token);
           localStorage.setItem('rol', user.rol);
+
+          localStorage.setItem('userdata', user.id);
+
           this.myRolSubject.next(user.rol);
         } else {
           console.log('No se encontró token en la respuesta.');

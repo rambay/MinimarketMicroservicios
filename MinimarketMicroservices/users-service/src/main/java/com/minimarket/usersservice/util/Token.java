@@ -15,11 +15,12 @@ public class Token {
     private final static String TOKEN_SECRETO = "aLg3eqbV2S4pZd9AFiMh4mAcRAt1Y0Jb";
     private final static Long TOKEN_DURACION = 1_800_000L;
 
-    public static String crearToken(String user, String email, String rol) {
+    public static String crearToken(Long id, String user, String email, String rol) {
         long expiracionTiempo = TOKEN_DURACION;
         Date expiracionFecha = new Date(System.currentTimeMillis() + expiracionTiempo);
 
         Map<String, Object> map = new HashMap<>();
+        map.put("id", id);
         map.put("nombre", user);
         map.put("email", email);
         map.put("rol", rol);

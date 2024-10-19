@@ -23,17 +23,13 @@ export class SignupComponent implements OnInit {
         name: form.value.name,
         lastname: form.value.lastname,
         genero: form.value.genero,
-        roles: [
-          {
-            id: 2,
-          },
-        ],
+        rol: {
+          id: 2,
+        },
       };
 
       this._usuarioService.guardarUsuario(usuario).subscribe(
         (response) => {
-          console.log('Usuario registrado con éxito', response);
-
           Swal.fire({
             title: 'Éxito!',
             text: 'Usuario registrado con éxito.',

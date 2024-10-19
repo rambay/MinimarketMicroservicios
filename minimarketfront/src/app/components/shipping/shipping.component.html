@@ -1,0 +1,103 @@
+<div class="shipping-container container" style="height: 100vh">
+  <div
+    class="row justify-content-center align-items-center"
+    style="height: 100%"
+  >
+    <div class="col-6">
+      <p
+        style="
+          color: #6c757d;
+          font-weight: lighter;
+          font-size: 14px;
+          display: flex;
+          gap: 8px;
+        "
+      >
+        <strong>Identificación</strong> <strong>|</strong>
+        <strong class="text-danger">Entrega</strong> <strong>|</strong>
+      </p>
+
+      <h1 class="mb-4">Datos para la entrega</h1>
+      <div class="row" style="margin-bottom: 6px">
+        <p
+          class="btn btn-danger"
+          style="width: 210px; border-radius: 30px; color: white"
+          disabled
+        >
+          Delivery
+        </p>
+      </div>
+
+      <!-- Capturar el envío del formulario -->
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group mb-3">
+          <label for="recipientName">Nombre del Destinatario:</label>
+          <input
+            type="text"
+            id="recipientName"
+            name="recipientName"
+            class="form-control"
+            [(ngModel)]="nombresUsuario"
+            disabled
+          />
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="recipientAddress">Dirección de la entrega:</label>
+          <input
+            type="text"
+            id="recipientAddress"
+            name="recipientAddress"
+            required
+            class="form-control"
+            [(ngModel)]="recipientAddress"
+          />
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="distrito">Distrito:</label>
+          <input
+            type="text"
+            id="distrito"
+            name="distrito"
+            required
+            class="form-control"
+            [(ngModel)]="distrito"
+          />
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="piso">Piso o Apartamento:</label>
+          <input
+            type="text"
+            id="piso"
+            name="piso"
+            required
+            class="form-control"
+            [(ngModel)]="piso"
+          />
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="phoneNumber">Número de Teléfono:</label>
+          <input
+            type="tel"
+            id="phoneNumber"
+            name="phoneNumber"
+            required
+            class="form-control"
+            [(ngModel)]="phoneNumber"
+          />
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn-danger w-100"
+          routerLink="/checkout/payment"
+        >
+          Enviar a esta dirección
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
