@@ -123,9 +123,6 @@ export class PaymentComponent implements OnInit {
 
         const producto = response.producto;
 
-        console.log(producto);
-        console.log('RESULTADO:', !producto || !producto.idProducto);
-
         if (!producto || !producto.idProducto) {
           throw new Error(
             `Producto no encontrado o ID indefinido para ID: ${detalle.idproducto}`

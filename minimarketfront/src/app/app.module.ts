@@ -20,6 +20,7 @@ import { ShopcartComponent } from './components/shopcart/shopcart.component';
 import { ShippingComponent } from './components/shipping/shipping.component';
 import { RouterModule } from '@angular/router';
 import { PaymentComponent } from './components/payment/payment.component';
+import { BoletasComponent } from './components/boletas/boletas.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { PaymentComponent } from './components/payment/payment.component';
     ShopcartComponent,
     ShippingComponent,
     PaymentComponent,
+    BoletasComponent,
   ],
   imports: [
     BrowserModule,

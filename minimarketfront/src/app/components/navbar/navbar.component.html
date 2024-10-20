@@ -11,7 +11,10 @@
           <p>Minimarket</p>
         </a>
         <nav>
-          <ul *ngIf="myRol == 'Administrador'">
+          <ul
+            *ngIf="myRol == 'Administrador'"
+            style="display: flex; align-items: center; gap: 32px"
+          >
             <div class="dropdown">
               <li
                 class="btn btn-secondary dropdown-toggle"
@@ -21,7 +24,7 @@
                 aria-expanded="false"
                 style="
                   background-color: transparent;
-                  color: #000;
+                  color: red;
                   border: none;
                   cursor: pointer;
                 "
@@ -46,6 +49,17 @@
                 </li>
               </ul>
             </div>
+            <ul>
+              <li>
+                <a
+                  routerLink="/boletas"
+                  style="text-decoration: none; color: blueviolet"
+                >
+                  <i class="bi bi-file-text-fill" style="color: blueviolet"></i>
+                  Registro de Boletas
+                </a>
+              </li>
+            </ul>
           </ul>
           <ul *ngIf="myRol != 'Administrador'">
             <li

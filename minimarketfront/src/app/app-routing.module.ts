@@ -12,6 +12,7 @@ import { StoreComponent } from './components/store/store.component';
 import { ShopcartComponent } from './components/shopcart/shopcart.component';
 import { ShippingComponent } from './components/shipping/shipping.component';
 import { PaymentComponent } from './components/payment/payment.component';
+import { BoletasComponent } from './components/boletas/boletas.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'register', component: SignupComponent },
   { path: 'store', component: StoreComponent },
   { path: 'cart', component: ShopcartComponent },
+  { path: 'boletas', component: BoletasComponent, canActivate: [AuthGuard] },
   {
     path: 'cart/shipping',
     component: ShippingComponent,

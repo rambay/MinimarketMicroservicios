@@ -1,0 +1,18 @@
+
+                                                     Version de Java: 11
+
+$$\   $$\                                         $$\
+$$ |  $$ |                                        \__|
+$$ |  $$ | $$$$$$$\ $$\   $$\  $$$$$$\   $$$$$$\  $$\  $$$$$$\   $$$$$$$\
+$$ |  $$ |$$  _____|$$ |  $$ | \____$$\ $$  __$$\ $$ |$$  __$$\ $$  _____|
+$$ |  $$ |\$$$$$$\  $$ |  $$ | $$$$$$$ |$$ |  \__|$$ |$$ /  $$ |\$$$$$$\
+$$ |  $$ | \____$$\ $$ |  $$ |$$  __$$ |$$ |      $$ |$$ |  $$ | \____$$\
+\$$$$$$  |$$$$$$$  |\$$$$$$  |\$$$$$$$ |$$ |      $$ |\$$$$$$  |$$$$$$$  |
+ \______/ \_______/  \______/  \_______|\__|      \__| \______/ \_______/
+
+Este es un microservicio de usuarios.
+Permite gestionar la creación, actualización
+y eliminación de usuarios. Implementa Spring
+Security para la gestión de autenticación y
+autorización. Bienvenido al sistema.
+
