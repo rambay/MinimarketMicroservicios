@@ -24,12 +24,10 @@ const routes: Routes = [
   {
     path: 'cart/shipping',
     component: ShippingComponent,
-    canActivate: [AuthGuard],
   },
   {
     path: 'checkout/payment',
     component: PaymentComponent,
-    canActivate: [AuthGuard],
   },
   {
     path: 'productos',

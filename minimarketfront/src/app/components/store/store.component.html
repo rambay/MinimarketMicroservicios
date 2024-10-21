@@ -4,9 +4,10 @@
       <h1 style="margin: 50px 0 40px 0; font-weight: bold">
         Listado de Productos
       </h1>
-      <div class="listaProductos" *ngFor="let producto of listadoProductos">
+      <div class="row">
         <div
-          class="col-md-3"
+          class="col-sm-6 col-md-3"
+          *ngFor="let producto of listadoProductos"
           style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)"
         >
           <div class="card mb-4">
@@ -28,19 +29,19 @@
                 {{ producto.nombre }}
               </h5>
               <p class="card-text">
-                <strong>Marca:</strong>{{ producto.marca }}
+                <strong>Marca:</strong> {{ producto.marca }}
               </p>
               <p class="card-text">
-                <strong>Categoria:</strong>{{ producto.tipoProd.nombre }}
+                <strong>Categoria:</strong> {{ producto.tipoProd.nombre }}
               </p>
               <p class="card-text">
-                <strong>Stock:</strong>{{ producto.cantidad }}
+                <strong>Stock:</strong> {{ producto.cantidad }}
               </p>
               <p class="card-text">
-                <strong>Precio:</strong
-                ><strong style="font-size: 20px; font-weight: bold"
-                  >S/. {{ producto.precio }}</strong
-                >
+                <strong>Precio:</strong>
+                <strong style="font-size: 20px; font-weight: bold">
+                  S/. {{ producto.precio }}
+                </strong>
               </p>
 
               <div class="form-group">

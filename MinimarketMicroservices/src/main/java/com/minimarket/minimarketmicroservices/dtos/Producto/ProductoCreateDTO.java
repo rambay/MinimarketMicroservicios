@@ -1,6 +1,6 @@
 package com.minimarket.minimarketmicroservices.dtos.Producto;
 
-import com.minimarket.minimarketmicroservices.dtos.Producto.TipoProducto.TipoProductoCreateDTO;
+import com.minimarket.minimarketmicroservices.dtos.Producto.TipoProducto.TipoProductoDTO;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,6 +15,6 @@ public class ProductoCreateDTO {
     private double precio;
     private String image;
     private LocalDate fechaVen;
-    private TipoProductoCreateDTO tipoProd;
+    private TipoProductoDTO tipoProd;
     private Long idProveedor;
 }
